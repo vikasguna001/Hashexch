@@ -24,7 +24,7 @@ app.set('port', port);
 // });
 
 //live database
-mongoose.connect('mongodb+srv://surendrashiroya520:surendrashiroya520@cluster0.xyga4vl.mongodb.net/Node_Hashexch',{}).then((res)=>{
+mongoose.connect('mongodb+srv://vikas:vikas@cluster0.kjanl.mongodb.net/Node_Hashexch',{}).then((res)=>{
   console.log("Db Connected");
 }).catch((error)=>{
   console.log(error + "error in db connection");
