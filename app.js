@@ -6,16 +6,9 @@ var logger = require('morgan');
 var cors = require('cors')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/UsersRoutes');
-var MasterRoutes = require('./routes/MasterRoutes');
-var MatchedLiveRoutes = require('./routes/MatchedLiveRoutes');
-var ChipsTransactionRoutes = require('./routes/ChipsTransactionRoutes');
-var PaymentDepositReqDetailRoutes = require('./routes/PaymentDepositReqDetailRoutes');
-var PaymentDepositPaidDetailRoutes = require('./routes/PaymentDepositPaidDetailRoutes');
-var PaymentWithdrwalReqDetailRoutes = require('./routes/PaymentWithdrwalReqDetailRoutes');
-var PaymentWithdrwalPaidDetailRoutes = require('./routes/PaymentWithdrwalPaidDetailRoutes');
 
 var app = express();
+app.use("/upload", express.static(path.join(__dirname, "upload")));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,14 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/api', usersRouter);
-app.use('/api', MasterRoutes);
-app.use('/api', MatchedLiveRoutes);
-app.use('/api', ChipsTransactionRoutes);
-app.use('/api', PaymentDepositReqDetailRoutes);
-app.use('/api', PaymentDepositPaidDetailRoutes);
-app.use('/api', PaymentWithdrwalReqDetailRoutes);
-app.use('/api', PaymentWithdrwalPaidDetailRoutes);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
